@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
-import { FaInstagram, FaTiktok, FaLinkedin, FaCopy, FaCheck, FaLock, FaStar, FaUserFriends, FaBolt } from "react-icons/fa";
+import { TypeAnimation } from 'react-type-animation';
+import { FaInstagram, FaTiktok, FaLinkedin, FaCopy, FaCheck, FaLock, FaStar, FaUserFriends, FaBolt, FaMagic } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 
 export default function Home() {
@@ -42,7 +43,7 @@ export default function Home() {
     <div className="min-h-screen bg-white flex flex-col font-sans text-slate-800">
       <Toaster position="top-center" />
 
-      {/* --- NAVBAR (Koka e faqes) --- */}
+      {/* --- NAVBAR --- */}
       <nav className="w-full border-b border-slate-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
           <div className="flex items-center gap-2">
@@ -51,50 +52,63 @@ export default function Home() {
             </div>
             <span className="text-xl font-bold tracking-tight text-slate-900">ViralShqip<span className="text-blue-600">.ai</span></span>
           </div>
-          
-          <div className="hidden md:flex gap-6 text-sm font-medium text-slate-600">
-            <a href="#" className="hover:text-blue-600 transition">Si funksionon</a>
-            <a href="#" className="hover:text-blue-600 transition">Çmimet</a>
-            <a href="#" className="hover:text-blue-600 transition">Shembuj</a>
-          </div>
-
           <div className="flex gap-3">
-             <button className="text-slate-600 font-medium text-sm hover:text-blue-600 px-3 py-2">Hyr</button>
-             <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-800 transition">Provo Falas</button>
+             <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-800 transition">Provo Tani</button>
           </div>
         </div>
       </nav>
 
       {/* --- HERO SECTION --- */}
-      <main className="flex-grow flex flex-col items-center pt-12 pb-20 px-4 bg-gradient-to-b from-blue-50/50 to-white">
+      <main className="flex-grow flex flex-col items-center pt-12 pb-20 px-4 bg-gradient-to-b from-blue-50/50 via-white to-white">
         
-        <div className="text-center mb-10 max-w-3xl">
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-bold mb-4 uppercase tracking-wider">
+        <div className="text-center mb-10 max-w-4xl">
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
             <FaStar className="text-yellow-500" />
             Besuar nga 2,000+ Krijues Shqiptarë
           </div>
+          
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 mb-6 tracking-tight leading-tight">
-            Krijo Postime <span className="text-blue-600">Virale</span> <br/> me Inteligjencë Artificiale.
+            Gjenero Postime Virale për <br />
+            <span className="text-blue-600 inline-block min-w-[200px]">
+              <TypeAnimation
+                sequence={[
+                  'TikTok 🎵',
+                  2000, 
+                  'Instagram 📸',
+                  2000,
+                  'LinkedIn 💼',
+                  2000,
+                  'Facebook 👍',
+                  2000
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+              />
+            </span>
           </h1>
-          <p className="text-lg text-slate-600 max-w-xl mx-auto mb-8">
-            Ndaloni së humburi kohë duke menduar. Gjenero Hooks, Përshkrime dhe Hashtags për Instagram & TikTok në sekonda.
+          
+          <p className="text-lg text-slate-600 max-w-xl mx-auto mb-8 leading-relaxed">
+            AI më i avancuar për tregun shqiptar. Shkruaj temën dhe merr 
+            skripte, përshkrime dhe hashtags në <span className="font-bold text-slate-800">2 sekonda.</span>
           </p>
         </div>
 
-        {/* --- THE TOOL (Kutia Kryesore) --- */}
-        <div className="w-full max-w-3xl bg-white p-6 md:p-10 rounded-3xl shadow-2xl border border-slate-200/60 relative overflow-hidden">
+        {/* --- THE TOOL --- */}
+        <div className="w-full max-w-3xl bg-white p-6 md:p-10 rounded-3xl shadow-2xl shadow-blue-900/10 border border-slate-200/60 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600"></div>
           
-          {/* Form */}
           <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
             <div>
-              <label className="block text-sm font-bold text-slate-700 mb-2">
+              <label className="flex items-center gap-2 text-sm font-bold text-slate-700 mb-2">
+                <FaMagic className="text-blue-500" />
                 Për çfarë do të flasësh?
               </label>
               <input
                 type="text"
                 required
                 placeholder="P.sh: Marketing Dixhital, Këshilla për Dobësim, Bitcoin..."
-                className="w-full p-4 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition bg-slate-50 font-medium"
+                className="w-full p-4 border border-slate-200 rounded-xl focus:ring-4 focus:ring-blue-500/10 focus:border-blue-500 outline-none transition bg-slate-50 font-medium text-lg placeholder:text-slate-400"
                 value={topic}
                 onChange={(e) => setTopic(e.target.value)}
               />
@@ -105,7 +119,7 @@ export default function Home() {
                 <label className="block text-xs font-bold text-slate-500 uppercase mb-2">Platforma</label>
                 <div className="relative">
                   <select 
-                    className="w-full p-3 pl-10 border border-slate-200 rounded-xl bg-white outline-none focus:border-blue-500 font-medium"
+                    className="w-full p-3 pl-10 border border-slate-200 rounded-xl bg-white outline-none focus:border-blue-500 font-medium appearance-none"
                     value={platform}
                     onChange={(e) => setPlatform(e.target.value)}
                   >
@@ -113,7 +127,7 @@ export default function Home() {
                     <option value="TikTok">TikTok</option>
                     <option value="LinkedIn">LinkedIn</option>
                   </select>
-                  <div className="absolute left-3 top-3.5 text-slate-400">
+                  <div className="absolute left-3 top-3.5 text-slate-400 text-lg">
                     {platform === "Instagram" && <FaInstagram />}
                     {platform === "TikTok" && <FaTiktok />}
                     {platform === "LinkedIn" && <FaLinkedin />}
@@ -150,15 +164,14 @@ export default function Home() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold py-4 rounded-xl transition duration-200 shadow-lg shadow-blue-600/20 disabled:opacity-70 flex justify-center items-center"
+              className="w-full bg-slate-900 hover:bg-slate-800 text-white text-lg font-bold py-4 rounded-xl transition duration-200 shadow-xl shadow-slate-900/10 disabled:opacity-70 flex justify-center items-center gap-2"
             >
-              {loading ? "Duke analizuar trendet..." : "Gjenero Tani ✨"}
+              {loading ? "Duke analizuar..." : <span>Gjenero Magjinë ✨</span>}
             </button>
             
-            {/* Security Badge */}
             <div className="flex justify-center items-center gap-2 text-xs text-slate-400 mt-2">
                 <FaLock className="text-green-500" />
-                <span>Të dhënat tuaja nuk ruhen. 100% Private.</span>
+                <span>100% Private & Pa Pagesë</span>
             </div>
           </form>
 
@@ -166,23 +179,18 @@ export default function Home() {
           {result && (
             <div className="mt-10 pt-8 border-t border-slate-100 space-y-8 animate-pulse-once">
               
-              <div className="bg-blue-50/50 p-6 rounded-2xl border border-blue-100">
+              <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl border border-blue-100/50">
                 <h3 className="font-bold text-lg text-blue-900 mb-4 flex items-center gap-2">
                   🪝 Hooks (Për të kapur vëmendjen)
                 </h3>
                 <ul className="space-y-3">
                   {result.hooks.map((hook, index) => (
-                      <li key={index} className="flex items-center justify-between gap-3 bg-white p-4 rounded-xl border border-blue-50 shadow-sm hover:border-blue-200 transition group">
+                      <li key={index} className="flex items-center justify-between gap-3 bg-white p-4 rounded-xl border border-blue-100 shadow-sm hover:shadow-md transition group cursor-pointer" onClick={() => copyToClipboard(hook)}>
                         <div className="flex items-center gap-3">
-                          <span className="bg-blue-100 text-blue-600 w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold flex-shrink-0">{index + 1}</span>
+                          <span className="bg-blue-600 text-white w-6 h-6 flex items-center justify-center rounded-full text-xs font-bold flex-shrink-0">{index + 1}</span>
                           <span className="text-slate-800 font-medium">{hook}</span>
                         </div>
-                        <button 
-                          onClick={() => copyToClipboard(hook)}
-                          className="text-slate-300 hover:text-blue-600 p-2"
-                        >
-                          <FaCopy />
-                        </button>
+                        <FaCopy className="text-slate-300 group-hover:text-blue-600 transition" />
                       </li>
                   ))}
                 </ul>
@@ -193,7 +201,7 @@ export default function Home() {
                   <h3 className="font-bold text-lg text-slate-800">📝 Përshkrimi (Caption)</h3>
                   <button onClick={() => copyToClipboard(result.caption)} className="text-xs font-bold text-blue-600 hover:underline flex items-center gap-1"><FaCopy /> KOPJO</button>
                 </div>
-                <div className="bg-slate-50 p-5 rounded-2xl text-slate-700 whitespace-pre-line border border-slate-200 font-medium text-sm leading-relaxed">
+                <div className="bg-slate-50 p-6 rounded-2xl text-slate-700 whitespace-pre-line border border-slate-200 font-medium text-sm leading-relaxed shadow-inner">
                   {result.caption}
                 </div>
               </div>
@@ -211,37 +219,28 @@ export default function Home() {
           )}
         </div>
 
-        {/* --- TRUST BADGES (Poshtë kutisë) --- */}
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8 text-center max-w-4xl opacity-80">
+        {/* --- TRUST BADGES --- */}
+        <div className="mt-16 grid grid-cols-3 gap-4 md:gap-12 text-center max-w-4xl opacity-80">
             <div className="flex flex-col items-center">
-                <div className="bg-white p-3 rounded-full shadow-sm mb-3 text-blue-600"><FaBolt /></div>
-                <h4 className="font-bold text-slate-800">Shpejtësi Rrufe</h4>
-                <p className="text-sm text-slate-500">Gjenerim nën 2 sekonda</p>
+                <FaBolt className="text-2xl text-blue-600 mb-2" />
+                <h4 className="font-bold text-slate-800 text-sm">Shpejtësi</h4>
             </div>
             <div className="flex flex-col items-center">
-                <div className="bg-white p-3 rounded-full shadow-sm mb-3 text-blue-600"><FaUserFriends /></div>
-                <h4 className="font-bold text-slate-800">500+ Përdorues Ditorë</h4>
-                <p className="text-sm text-slate-500">I preferuari i influencuesve</p>
+                <FaUserFriends className="text-2xl text-blue-600 mb-2" />
+                <h4 className="font-bold text-slate-800 text-sm">500+ Përdorues</h4>
             </div>
             <div className="flex flex-col items-center">
-                <div className="bg-white p-3 rounded-full shadow-sm mb-3 text-blue-600"><FaLock /></div>
-                <h4 className="font-bold text-slate-800">Siguri Maksimale</h4>
-                <p className="text-sm text-slate-500">Të dhëna të enkriptuara</p>
+                <FaLock className="text-2xl text-blue-600 mb-2" />
+                <h4 className="font-bold text-slate-800 text-sm">Siguri</h4>
             </div>
         </div>
-
       </main>
 
       {/* --- FOOTER --- */}
-      <footer className="bg-white border-t border-slate-100 py-10">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="bg-white border-t border-slate-100 py-10 mt-auto">
+        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
             <div className="text-slate-400 text-sm">
-                &copy; 2024 ViralShqip AI. Të gjitha të drejtat e rezervuara.
-            </div>
-            <div className="flex gap-6 text-sm font-medium text-slate-500">
-                <a href="#" className="hover:text-slate-900">Termat e Përdorimit</a>
-                <a href="#" className="hover:text-slate-900">Privatësia</a>
-                <a href="#" className="hover:text-slate-900">Na Kontaktoni</a>
+                &copy; 2024 ViralShqip AI.
             </div>
         </div>
       </footer>
