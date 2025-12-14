@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
-import { FaInstagram, FaTiktok, FaLinkedin, FaCopy, FaCheck, FaLock, FaStar, FaUserFriends, FaBolt, FaMagic } from "react-icons/fa";
+import { FaInstagram, FaTiktok, FaLinkedin, FaCopy, FaCheck, FaLock, FaStar, FaUserFriends, FaBolt, FaMagic, FaBars } from "react-icons/fa";
 import { Toaster, toast } from "react-hot-toast";
 
 export default function Home() {
@@ -43,17 +43,30 @@ export default function Home() {
     <div className="min-h-screen bg-white flex flex-col font-sans text-slate-800">
       <Toaster position="top-center" />
 
-      {/* --- NAVBAR --- */}
+      {/* --- NAVBAR I PLOTË --- */}
       <nav className="w-full border-b border-slate-100 bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 h-16 flex justify-between items-center">
-          <div className="flex items-center gap-2">
-            <div className="bg-blue-600 text-white p-1.5 rounded-lg">
+          {/* Logo */}
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.location.reload()}>
+            <div className="bg-blue-600 text-white p-1.5 rounded-lg shadow-blue-500/30 shadow-lg">
               <FaBolt className="text-xl" />
             </div>
             <span className="text-xl font-bold tracking-tight text-slate-900">ViralShqip<span className="text-blue-600">.ai</span></span>
           </div>
-          <div className="flex gap-3">
-             <button className="bg-slate-900 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-800 transition">Provo Tani</button>
+          
+          {/* Menuja e Mesit (për Desktop) */}
+          <div className="hidden md:flex gap-8 text-sm font-medium text-slate-600">
+            <a href="#" className="hover:text-blue-600 transition duration-200">Si funksionon</a>
+            <a href="#" className="hover:text-blue-600 transition duration-200">Çmimet</a>
+            <a href="#" className="hover:text-blue-600 transition duration-200">Shembuj</a>
+            <a href="#" className="hover:text-blue-600 transition duration-200">Blog</a>
+          </div>
+
+          {/* Butonat Djathtas */}
+          <div className="flex gap-3 items-center">
+             <button className="hidden md:block text-slate-600 font-medium text-sm hover:text-blue-600 px-3 py-2 transition">Hyr</button>
+             <button className="bg-slate-900 text-white px-5 py-2.5 rounded-xl text-sm font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20">Provo Falas</button>
+             <button className="md:hidden text-slate-600 text-xl ml-2"><FaBars /></button>
           </div>
         </div>
       </nav>
@@ -62,7 +75,7 @@ export default function Home() {
       <main className="flex-grow flex flex-col items-center pt-12 pb-20 px-4 bg-gradient-to-b from-blue-50/50 via-white to-white">
         
         <div className="text-center mb-10 max-w-4xl">
-          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-wider shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-xs font-bold mb-6 uppercase tracking-wider shadow-sm animate-fade-in-up">
             <FaStar className="text-yellow-500" />
             Besuar nga 2,000+ Krijues Shqiptarë
           </div>
@@ -94,7 +107,7 @@ export default function Home() {
           </p>
         </div>
 
-        {/* --- THE TOOL --- */}
+        {/* --- THE TOOL (Kutia Kryesore) --- */}
         <div className="w-full max-w-3xl bg-white p-6 md:p-10 rounded-3xl shadow-2xl shadow-blue-900/10 border border-slate-200/60 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600"></div>
           
@@ -223,24 +236,65 @@ export default function Home() {
         <div className="mt-16 grid grid-cols-3 gap-4 md:gap-12 text-center max-w-4xl opacity-80">
             <div className="flex flex-col items-center">
                 <FaBolt className="text-2xl text-blue-600 mb-2" />
-                <h4 className="font-bold text-slate-800 text-sm">Shpejtësi</h4>
+                <h4 className="font-bold text-slate-800 text-sm">Shpejtësi Rrufe</h4>
+                <p className="text-xs text-slate-400 hidden md:block mt-1">Gjenerim nën 2 sekonda</p>
             </div>
             <div className="flex flex-col items-center">
                 <FaUserFriends className="text-2xl text-blue-600 mb-2" />
                 <h4 className="font-bold text-slate-800 text-sm">500+ Përdorues</h4>
+                <p className="text-xs text-slate-400 hidden md:block mt-1">I preferuari i krijuesve</p>
             </div>
             <div className="flex flex-col items-center">
                 <FaLock className="text-2xl text-blue-600 mb-2" />
-                <h4 className="font-bold text-slate-800 text-sm">Siguri</h4>
+                <h4 className="font-bold text-slate-800 text-sm">Siguri 100%</h4>
+                <p className="text-xs text-slate-400 hidden md:block mt-1">Të dhëna të enkriptuara</p>
             </div>
         </div>
       </main>
 
-      {/* --- FOOTER --- */}
-      <footer className="bg-white border-t border-slate-100 py-10 mt-auto">
-        <div className="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6 text-center md:text-left">
-            <div className="text-slate-400 text-sm">
-                &copy; 2024 ViralShqip AI.
+      {/* --- FOOTER I PLOTË --- */}
+      <footer className="bg-white border-t border-slate-100 pt-12 pb-8">
+        <div className="max-w-6xl mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+                <div>
+                    <div className="flex items-center gap-2 mb-4">
+                        <div className="bg-blue-600 text-white p-1 rounded">
+                            <FaBolt className="text-sm" />
+                        </div>
+                        <span className="font-bold text-slate-900">ViralShqip.ai</span>
+                    </div>
+                    <p className="text-slate-500 text-sm max-w-xs">
+                        Ndihmojmë krijuesit shqiptarë të kursejnë kohë dhe të rrisin audiencën e tyre me fuqinë e AI.
+                    </p>
+                </div>
+                
+                <div className="grid grid-cols-2 gap-12">
+                    <div>
+                        <h4 className="font-bold text-slate-900 mb-4 text-sm">Produkti</h4>
+                        <ul className="space-y-2 text-sm text-slate-500">
+                            <li><a href="#" className="hover:text-blue-600">Si funksionon</a></li>
+                            <li><a href="#" className="hover:text-blue-600">Çmimet</a></li>
+                            <li><a href="#" className="hover:text-blue-600">Për Biznese</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-slate-900 mb-4 text-sm">Ligjore</h4>
+                        <ul className="space-y-2 text-sm text-slate-500">
+                            <li><a href="#" className="hover:text-blue-600">Privatësia</a></li>
+                            <li><a href="#" className="hover:text-blue-600">Termat</a></li>
+                            <li><a href="#" className="hover:text-blue-600">Na Kontaktoni</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div className="border-t border-slate-100 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+                <p>&copy; 2024 ViralShqip AI. Të gjitha të drejtat e rezervuara.</p>
+                <div className="flex gap-4">
+                    <FaInstagram className="hover:text-pink-600 cursor-pointer text-lg" />
+                    <FaTiktok className="hover:text-black cursor-pointer text-lg" />
+                    <FaLinkedin className="hover:text-blue-700 cursor-pointer text-lg" />
+                </div>
             </div>
         </div>
       </footer>
